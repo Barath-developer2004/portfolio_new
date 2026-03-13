@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barath Raj | Web Developer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Barath Raj — Web Developer crafting high-performance digital experiences. Final-year CSBS student specializing in React, TypeScript, Node.js, and blockchain.">
+    
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Barath Raj | Web Developer">
+    <meta property="og:description" content="Final-year CS student building modern, scalable web applications. Experienced with React, TypeScript, Node.js, and blockchain development.">
+    <meta property="og:image" content="images/avatar.jpg">
+    <meta property="og:url" content="">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Barath Raj | Web Developer">
+    <meta name="twitter:description" content="Final-year CS student building modern, scalable web applications. React, TypeScript, Node.js & blockchain.">
+    <meta name="twitter:image" content="images/avatar.jpg">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a0a0a">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">BR</div>
+            <div class="preloader-line">
+                <div class="preloader-line-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <div class="main-layout">
+
+        <!-- Mobile Header Bar -->
+        <header class="mobile-header">
+            <div class="mobile-header-left">
+                <span class="mobile-logo">BR</span>
+                <span class="mobile-name">Barath Raj</span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+        
+        <!-- Sidebar Overlay (for mobile) -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Desktop Sidebar Toggle -->
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <!-- SIDEBAR (FIXED) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="profile-header">
+                <div class="avatar-wrap">
+                    <img src="images/avatar.jpg" alt="Barath Raj" class="avatar">
+                    <div class="status-indicator"></div>
+                </div>
+                
+                <h1 class="name">Barath Raj</h1>
+                <p class="role">Web Developer</p>
+                <div class="availability-bar">
+                    <span class="avail-dot"></span>
+                    <span class="avail-text">Available</span>
+                    <span class="avail-sep">•</span>
+                    <span class="avail-clock" id="live-clock">IST --:--</span>
+                </div>
+                <div class="tag-row">
+                    <span class="tag">Final Year CSBS</span>
+                    <span class="tag">Open for Hire</span>
+                </div>
+
+                <p class="bio">
+                    Computer Science student building modern, scalable web applications. Passionate about clean code and user experience.
+                </p>
+
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="#about" class="active"><span>01</span>About</a>
+                    <a href="#experience"><span>02</span>Education</a>
+                    <a href="#projects"><span>03</span>Projects</a>
+                    <a href="#contact"><span>04</span>Contact</a>
+                </nav>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="social-links">
+                    <a href="https://github.com/Barath-developer2004" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                    <a href="https://www.linkedin.com/in/barath2004/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                </div>
+                <a href="barath-resume.pdf" class="resume-btn" download>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Resume
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTENT (SCROLLABLE) -->
+        <main class="content-area">
+            
+            <section id="about" class="section">
+                <div class="section-badge">Introduction</div>
+                <h2 class="section-title">I build things for <br><span class="highlight">the web.</span></h2>
+                
+                <div class="about-grid">
+                    <div class="stat-card">
+                        <h3>2+</h3>
+                        <p>Years Coding</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>40+</h3>
+                        <p>GitHub Repos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>8.00</h3>
+                        <p>Current GPA</p>
+                    </div>
+                </div>
+
+                <p class="lead-text">
+                    I'm a final-year Computer Science student with a deep passion for building software that solves real problems. I am constantly building side projects to refine my skills in full-stack development.
+                </p>
+                
+                <div class="tech-stack-row">
+                    <div class="tech-item"><span class="tech-icon react">⚛</span> React</div>
+                    <div class="tech-item"><span class="tech-icon ts">TS</span> TypeScript</div>
+                    <div class="tech-item"><span class="tech-icon node">JS</span> Node.js</div>
+                    <div class="tech-item"><span class="tech-icon py">PY</span> Python</div>
+                    <div class="tech-item"><span class="tech-icon db">DB</span> SQL</div>
+                    <div class="tech-item"><span class="tech-icon java">JV</span> Java</div>
+                </div>
+            </section>
+
+            <section id="experience" class="section">
+                <div class="section-badge">Timeline</div>
+                <h2 class="section-title">Education & <br><span class="highlight">Milestones</span></h2>
+                
+                <div class="timeline">
+                    <!-- University -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022 — 2026</div>
+                        <div class="timeline-content">
+                            <h3>B.Tech — Computer Science & Business Systems</h3>
+                            <span class="company">RMK Engineering College</span>
+                            <p>Final year engineering student specializing in Computer Science and Business Systems. Key coursework: Data Structures, Algorithms, Distributed Systems, Database Management, and Business Analytics.</p>
+                            <div class="tags">
+                                <span>CGPA: 7.97</span>
+                                <span>GPA: 8.0</span>
+                                <span>Final Year</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coding Club / Leadership (Example placeholder for student activity) -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2026 — Present</div>
+                        <div class="timeline-content">
+                            <h3>Freelance Developer</h3>
+                            <span class="company">Self-Employed</span>
+                            <p>Built and delivered 3 client projects including a blockchain voting platform, AI quiz system, and career development platform. Worked directly with clients from requirement gathering to deployment.</p>
+                            <div class="tags">
+                                <span>Freelancing</span>
+                                <span>Client Management</span>
+                                <span>Full Stack</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 — 2025</div>
+                        <div class="timeline-content">
+                            <h3>Certifications</h3>
+                            <span class="company">Udemy & AWS</span>
+                            <p>Completed industry-recognized certifications covering full-stack web development, MERN stack with real-world eCommerce projects, and cloud computing fundamentals.</p>
+                            <div class="tags">
+                                <span>Full-Stack Web Dev Bootcamp</span>
+                                <span>MERN eCommerce</span>
+                                <span>AWS Cloud Practitioner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <div class="section-badge">Selected Work</div>
+                <h2 class="section-title">Featured Projects</h2>
+
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="client">Client</button>
+                    <button class="filter-btn" data-filter="personal">Personal</button>
+                </div>
+
+                <!-- Featured Project (full width) -->
+                <div class="project-card project-featured" data-category="client">
+                    <div class="project-image">
+                        <img src="images/votechain.png" alt="VoteChain on ICP" class="project-img">
+                        <div class="overlay"></div>
+                        <span class="client-badge">Client Project</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>VoteChain — On-Chain Voting Platform</h3>
+                        <p>A tamper-proof, transparent voting platform with three-factor authentication — powered by Internet Computer blockchain and verified by biometrics. Features on-chain voting with audit logs, admin dashboard for election management, and citizen registration via WebAuthn/FIDO2.</p>
+                        <div class="project-tech">
+                            <span>ICP</span>
+                            <span>Motoko</span>
+                            <span>React 18</span>
+                            <span>Vite</span>
+                            <span>Tailwind CSS</span>
+                            <span>Framer Motion</span>
+                            <span>Internet Identity</span>
+                            <span>DFX SDK</span>
+                            <span>Candid</span>
+                            <span>@dfinity/agent</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-sm">View Demo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            <a href="https://github.com/Barath-developer2004/Voting_system_blockchain" class="btn-icon" aria-label="GitHub Repo" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+                       
+                <div class="projects-grid">
+                
+                <div class="project-card" data-category="client">
+                    <div class="project-image">
+                        <img src="images/quizmaster-ai.png" alt="QuizMaster AI" class="project-img">
+                        <div class="overlay"></div>
+                        <span class="client-badge">Client Project</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>QuizMaster AI</h3>
+                        <p>An AI-powered quiz platform that dynamically generates questions across Academic, Entertainment & General Knowledge categories. Features timed quizzes, multiple-choice questions, and a modern dark-themed dashboard.</p>
+                        <div class="project-tech">
+                            <span>Django</span>
+                            <span>Python</span>
+                            <span>SQLite</span>
+                            <span>Bootstrap 5</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ai-quiz-intelligent.onrender.com" class="btn-sm" target="_blank" rel="noopener noreferrer">View Demo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            <a href="https://github.com/Barath-developer2004/AI_Intelligent_QUIZ" class="btn-icon" aria-label="GitHub Repo" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="client">
+                    <div class="project-image">
+                        <img src="images/careerx.png" alt="CareerX" class="project-img">
+                        <div class="overlay"></div>
+                        <span class="client-badge">Client Project</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>CareerX</h3>
+                        <p>An AI-powered career platform for ATS-optimized resumes, coding practice, interview prep, and job discovery — powered by Google Gemini AI.</p>
+                        <div class="project-tech">
+                            <span>Next.js</span>
+                            <span>React</span>
+                            <span>TypeScript</span>
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>MongoDB</span>
+                            <span>Tailwind CSS</span>
+                            <span>Gemini AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://career-development-eight.vercel.app" class="btn-sm" target="_blank" rel="noopener noreferrer">View Demo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            <a href="https://github.com/Barath-developer2004/Career_development" class="btn-icon" aria-label="GitHub Repo" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="personal">
+                    <div class="project-image">
+                        <img src="images/ic-digital.png" alt="IC Digital NFT Marketplace" class="project-img">
+                        <div class="overlay"></div>
+                        <span class="client-badge">Personal Project</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>IC Digital — NFT Marketplace</h3>
+                        <p>A decentralized NFT marketplace and token ecosystem built on the Internet Computer. Mint, list, browse, and purchase NFTs with a custom fungible token, faucet system, and Internet Identity authentication — all with zero gas fees.</p>
+                        <div class="project-tech">
+                            <span>ICP</span>
+                            <span>Motoko</span>
+                            <span>React 18</span>
+                            <span>TypeScript</span>
+                            <span>Tailwind CSS</span>
+                            <span>Zustand</span>
+                            <span>Framer Motion</span>
+                            <span>Webpack 5</span>
+                            <span>Internet Identity</span>
+                            <span>@dfinity/agent</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/1qeBCYXRo6lwItl8JXp5hLaiZUixYhZAL/view?usp=sharing" class="btn-sm" target="_blank" rel="noopener noreferrer">View Demo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            <a href="#" class="btn-icon" aria-label="GitHub Repo" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="personal">
+                    <div class="project-image">
+                        <img src="images/deadline-detector.png" alt="Deadline Detector for Gmail" class="project-img">
+                        <div class="overlay"></div>
+                        <span class="client-badge">Personal Project</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Deadline Detector — Chrome Extension</h3>
+                        <p>An AI-powered Chrome extension for Gmail that scans incoming emails, extracts deadlines and important dates using Gemini AI, and integrates them into your calendar — eliminating manual scheduling. Published on the Chrome Web Store.</p>
+                        <div class="project-tech">
+                            <span>JavaScript</span>
+                            <span>Manifest V3</span>
+                            <span>Gemini AI</span>
+                            <span>Chrome API</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://chromewebstore.google.com/detail/kpiemelknoiokfmgppfplehcopbkeeal" class="btn-sm" target="_blank" rel="noopener noreferrer">View Demo <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                            <a href="#" class="btn-icon" aria-label="GitHub Repo" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+            </section>
+
+            <section id="contact" class="section">
+                <div class="section-badge">Get in Touch</div>
+                <h2 class="section-title">Let's work together.</h2>
+                <p class="lead-text">
+                    I'm currently available for freelance projects and open to discussing full-time opportunities.
+                </p>
+
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mnjgqady" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Project Inquiry">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project or opportunity..." rows="6"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span class="submit-btn-text">Send Message</span>
+                        <span class="submit-btn-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </span>
+                    </button>
+                </form>
+
+                <div class="contact-divider">
+                    <span>or</span>
+                </div>
+
+                <div class="contact-backup">
+                    <a href="mailto:barathsyntax@gmail.com" class="direct-email">
+                        <div class="email-icon-wrap">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="email-text">
+                            <span class="email-label">Email me directly</span>
+                            <span class="email-address">barathsyntax@gmail.com</span>
+                        </div>
+                        <svg class="email-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2026 Barath Raj. Built with Vanilla JS & CSS.</p>
+                <a href="#about" class="back-to-top">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    Back to top
+                </a>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
