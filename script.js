@@ -1,4 +1,29 @@
+// Check for saved theme
+const savedTheme = localStorage.getItem('theme') || 'dark';
+if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle
+    const themeCheckbox = document.getElementById('theme-checkbox');
+    if (themeCheckbox) {
+        // Set initial state
+        if (savedTheme === 'light') {
+            themeCheckbox.checked = true;
+        }
+
+        themeCheckbox.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+
     // Preloader
     const preloader = document.getElementById('preloader');
     if (preloader) {
@@ -124,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursorCircle.style.width = '30px';
                 cursorCircle.style.height = '30px';
                 cursorCircle.style.backgroundColor = 'transparent';
-                cursorCircle.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                cursorCircle.style.borderColor = 'var(--cursor-border)';
                 cursorDot.style.transform = 'scale(1)';
             });
         });

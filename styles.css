@@ -12,6 +12,11 @@
     --border-color: #1e1e1e;
     --border-hover: #333333;
     --success: #10b981;
+    --tag-bg: rgba(255, 255, 255, 0.05);
+    --cursor-border: rgba(255, 255, 255, 0.5);
+    --input-focus-bg: rgba(20, 20, 20, 0.8);
+    --input-placeholder: #3a3a3a;
+    --highlight-gradient: linear-gradient(90deg, var(--accent-light), #a78bfa, var(--accent-light));
     
     --font-sans: 'Plus Jakarta Sans', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -22,6 +27,41 @@
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
+}
+
+/* Light Theme Overrides */
+html[data-theme="light"] {
+    --bg-color: #ffffff;
+    --sidebar-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --card-bg-hover: #f5f7fa;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --accent: #2563eb;
+    --accent-light: #3b82f6;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+    --accent-subtle: rgba(37, 99, 235, 0.08);
+    --tag-bg: rgba(37, 99, 235, 0.06);
+    --shadow-glow: rgba(0, 0, 0, 0.1);
+    --cursor-border: rgba(0, 0, 0, 0.2);
+    --input-focus-bg: #ffffff;
+    --input-placeholder: #a0aec0;
+    --highlight-gradient: linear-gradient(90deg, #2563eb, #7c3aed, #2563eb);
+}
+
+html[data-theme="light"] .sidebar-toggle {
+    box-shadow: 0 0 12px var(--accent-glow), 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-color: #ffffff;
+}
+
+html[data-theme="light"] .sidebar-toggle:hover {
+    box-shadow: 0 0 20px var(--accent-glow), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="light"] .cursor-circle {
+    border-color: var(--cursor-border);
 }
 
 * {
@@ -42,6 +82,7 @@ body {
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Preloader */
@@ -158,7 +199,7 @@ body::before {
 .cursor-circle {
     width: 30px;
     height: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--cursor-border);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -184,14 +225,107 @@ body::before {
     left: 0;
     top: 0;
     padding: 3rem;
+    padding-top: 4rem; /* Give space for toggle */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 2rem;
     z-index: 100;
     overflow-y: auto;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s, border-color 0.4s;
 }
+
+/* Theme Toggle styles */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+}
+
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    width: 56px;
+    height: 30px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Default dark mode slider appearance */
+    background-color: #1e1e1e;
+    border: 2px solid #333333;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 36px;
+}
+
+html[data-theme="light"] .theme-switch .slider {
+    /* Exact style from the image for light mode */
+    background-color: #f1f5f9;
+    border-color: #0a0a0a;
+}
+
+.theme-switch .thumb {
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #0a0a0a;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border-radius: 50%;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html[data-theme="light"] .theme-switch .thumb {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+input:checked + .slider .thumb {
+    transform: translateX(26px);
+}
+
+.sun-icon, .moon-icon {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    transition: 0.4s ease, opacity 0.4s ease;
+}
+
+/* Default Dark Mode: show moon */
+.sun-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+.moon-icon {
+    opacity: 1;
+    transform: rotate(0);
+    stroke: #f5f5f5;
+}
+
+/* Light Mode: show sun */
+html[data-theme="light"] .sun-icon {
+    opacity: 1;
+    transform: rotate(0);
+    stroke: #ff8c00;
+}
+html[data-theme="light"] .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
 
 /* Collapsed sidebar (desktop only) */
 .sidebar.collapsed {
@@ -356,7 +490,7 @@ body::before {
 .tag {
     font-size: 0.7rem;
     font-family: var(--font-mono);
-    background: rgba(255,255,255,0.05);
+    background: var(--tag-bg, rgba(255, 255, 255, 0.05));
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     color: var(--text-secondary);
@@ -520,7 +654,7 @@ body::before {
 }
 
 .highlight {
-    background: linear-gradient(90deg, var(--accent-light), #a78bfa, var(--accent-light));
+    background: var(--highlight-gradient);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -857,7 +991,7 @@ body::before {
     z-index: 2;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px var(--shadow-glow, rgba(255, 255, 255, 0.2));
 }
 
 .overlay {
@@ -1006,14 +1140,14 @@ textarea {
 }
 
 input::placeholder, textarea::placeholder {
-    color: #3a3a3a;
+    color: var(--input-placeholder);
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-subtle), 0 0 20px -5px var(--accent-glow);
-    background: rgba(20, 20, 20, 0.8);
+    background: var(--input-focus-bg);
 }
 
 /* Submit Button - Clean White */
@@ -1041,7 +1175,7 @@ input:focus, textarea:focus {
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px -5px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px -5px var(--shadow-glow, rgba(255, 255, 255, 0.2));
 }
 
 .submit-btn:active {
