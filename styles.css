@@ -301,6 +301,7 @@ html[data-theme="light"] .moon-icon-mobile {
 @media (max-width: 768px) {
     .theme-switch-mobile {
         display: inline-block;
+        margin-top: -4px;
     }
 }
 
