@@ -5,8 +5,10 @@ if (savedTheme === 'light') {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle
+    // Theme Toggle - Desktop & Mobile
     const themeCheckbox = document.getElementById('theme-checkbox');
+    const themeCheckboxMobile = document.getElementById('theme-checkbox-mobile');
+    
     if (themeCheckbox) {
         // Set initial state
         if (savedTheme === 'light') {
@@ -17,9 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target.checked) {
                 document.documentElement.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
+                if (themeCheckboxMobile) themeCheckboxMobile.checked = true;
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
+                if (themeCheckboxMobile) themeCheckboxMobile.checked = false;
+            }
+        });
+    }
+
+    // Mobile theme toggle sync
+    if (themeCheckboxMobile) {
+        if (savedTheme === 'light') {
+            themeCheckboxMobile.checked = true;
+        }
+
+        themeCheckboxMobile.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                if (themeCheckbox) themeCheckbox.checked = true;
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                if (themeCheckbox) themeCheckbox.checked = false;
             }
         });
     }

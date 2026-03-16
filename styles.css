@@ -209,6 +209,101 @@ body::before {
     transition: transform 0.2s ease-out;
 }
 
+/* Mobile Theme Toggle */
+.mobile-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.theme-switch-mobile {
+    display: none;
+    position: relative;
+}
+
+.theme-switch-mobile input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch-mobile .slider-mobile {
+    position: relative;
+    cursor: pointer;
+    width: 44px;
+    height: 24px;
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+html[data-theme="light"] .theme-switch-mobile .slider-mobile {
+    background-color: #f1f5f9;
+    border-color: #0a0a0a;
+}
+
+.theme-switch-mobile .thumb-mobile {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #0a0a0a;
+    border-radius: 50%;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+html[data-theme="light"] .theme-switch-mobile .thumb-mobile {
+    background-color: #ffffff;
+}
+
+input:checked + .slider-mobile .thumb-mobile {
+    transform: translateX(20px);
+}
+
+.sun-icon-mobile,
+.moon-icon-mobile {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    transition: 0.3s ease, opacity 0.3s ease;
+}
+
+/* Default Dark Mode: show moon */
+.sun-icon-mobile {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.moon-icon-mobile {
+    opacity: 1;
+    transform: rotate(0);
+    stroke: #f5f5f5;
+}
+
+/* Light Mode: show sun */
+html[data-theme="light"] .sun-icon-mobile {
+    opacity: 1;
+    transform: rotate(0);
+    stroke: #ff8c00;
+}
+
+html[data-theme="light"] .moon-icon-mobile {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+/* Show mobile theme toggle on mobile screens */
+@media (max-width: 768px) {
+    .theme-switch-mobile {
+        display: inline-block;
+    }
+}
+
 /* Layout */
 .main-layout {
     display: flex;
