@@ -219,27 +219,26 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Reveal animations on scroll (staggered)
-    const revealElements = document.querySelectorAll('.project-card, .project-featured, .timeline-item, .stat-card');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+    // Reveal animations on scroll
+    const revealElements = document.querySelectorAll('.project-card, .project-featured, .timeline-item, .stat-card, .section-title, .lead-text, .tech-stack-row, .about-grid');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Staggered delay based on sibling index
+                // Stagger based on DOM index among siblings
                 const siblings = entry.target.parentElement.children;
                 const siblingIndex = Array.from(siblings).indexOf(entry.target);
+                
                 setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, siblingIndex * 120);
-                revealObserver.unobserve(entry.target);
+                    entry.target.classList.add('active-reveal');
+                }, (siblingIndex % 5) * 100); // 100ms cascade maxed at 5 elements to prevent huge delays
+                
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        el.classList.add('reveal-element');
         revealObserver.observe(el);
     });
 

@@ -16,7 +16,7 @@
     --cursor-border: rgba(255, 255, 255, 0.5);
     --input-focus-bg: rgba(20, 20, 20, 0.8);
     --input-placeholder: #3a3a3a;
-    --highlight-gradient: linear-gradient(90deg, var(--accent-light), #a78bfa, var(--accent-light));
+    --highlight-gradient: linear-gradient(90deg, #3b82f6, #a855f7, #ec4899, #3b82f6);
     
     --font-sans: 'Plus Jakarta Sans', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -48,7 +48,7 @@ html[data-theme="light"] {
     --cursor-border: rgba(0, 0, 0, 0.2);
     --input-focus-bg: #ffffff;
     --input-placeholder: #a0aec0;
-    --highlight-gradient: linear-gradient(90deg, #2563eb, #7c3aed, #2563eb);
+    --highlight-gradient: linear-gradient(90deg, #2563eb, #7c3aed, #db2777, #2563eb);
 }
 
 html[data-theme="light"] .sidebar-toggle {
@@ -309,6 +309,19 @@ html[data-theme="light"] .moon-icon-mobile {
 .main-layout {
     display: flex;
     min-height: 100vh;
+}
+
+/* Animations */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-element.active-reveal {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Sidebar */
